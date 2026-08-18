@@ -178,7 +178,7 @@ export function Contact() {
 
             {
               icon: Phone,
-              label: "Phone",
+              label: "Phone ou Whatsapp",
               value: "+261 38 95 293 85",
               href: "tel:+261389529385",
             },
