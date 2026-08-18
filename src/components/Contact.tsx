@@ -8,6 +8,7 @@ import {
   Send,
   CheckCircle2,
   Loader2,
+  User,
 } from "lucide-react";
 
 import { Section } from "./Section";
@@ -64,14 +65,11 @@ export function Contact() {
       // EMAILJS CONFIGURATION
       // =========================
 
-      const serviceId =
-        import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 
-      const templateId =
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
-      const publicKey =
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
       console.log("EmailJS configuration:", {
         serviceId,
@@ -95,10 +93,7 @@ export function Contact() {
         message,
       };
 
-      console.log(
-        "Sending message:",
-        templateParams
-      );
+      console.log("Sending message:", templateParams);
 
       // =========================
       // SEND EMAIL
@@ -113,10 +108,7 @@ export function Contact() {
         }
       );
 
-      console.log(
-        "EmailJS success:",
-        response
-      );
+      console.log("EmailJS success:", response);
 
       // =========================
       // SUCCESS
@@ -130,28 +122,15 @@ export function Contact() {
         message: "",
       });
     } catch (err: any) {
-      console.error(
-        "========== EMAILJS ERROR =========="
-      );
+      console.error("========== EMAILJS ERROR ==========");
 
-      console.error(
-        "Status:",
-        err?.status
-      );
+      console.error("Status:", err?.status);
 
-      console.error(
-        "Text:",
-        err?.text
-      );
+      console.error("Text:", err?.text);
 
-      console.error(
-        "Full error:",
-        err
-      );
+      console.error("Full error:", err);
 
-      console.error(
-        "==================================="
-      );
+      console.error("===================================");
 
       setError(
         err?.text ||
@@ -187,47 +166,36 @@ export function Contact() {
           viewport={{
             once: true,
           }}
-          className="md:col-span-2 space-y-3"
+          className="space-y-3 md:col-span-2"
         >
           {[
             {
               icon: Mail,
               label: "Email",
-              value:
-                "safidysylvana333@gmail.com",
-              href:
-                "mailto:safidysylvana333@gmail.com",
+              value: "safidysylvana333@gmail.com",
+              href: "mailto:safidysylvana333@gmail.com",
             },
 
             {
               icon: Phone,
               label: "Phone",
-              value:
-                "+261 38 95 293 85",
-              href:
-                "tel:+261389529385",
+              value: "+261 38 95 293 85",
+              href: "tel:+261389529385",
             },
 
             {
               icon: MapPin,
               label: "Location",
-              value:
-                "Fianarantsoa, Madagascar",
+              value: "Fianarantsoa, Madagascar",
             },
 
             {
-              icon: Linkedin,
+              icon: User,
               label: "LinkedIn",
-              value:
-                "safisy sylvana Nambinijanahary",
-              href:
-                "https://www.linkedin.com/in/safidy",
+              value: "Safidy Sylvana Nambinijanahary",
             },
-
-         
           ].map((contact) => {
-            const Component: any =
-              contact.href ? "a" : "div";
+            const Component: any = contact.href ? "a" : "div";
 
             return (
               <Component
@@ -235,13 +203,6 @@ export function Contact() {
                 {...(contact.href
                   ? {
                       href: contact.href,
-                      target:
-                        contact.href.startsWith(
-                          "http"
-                        )
-                          ? "_blank"
-                          : undefined,
-                      rel: "noreferrer",
                     }
                   : {})}
                 className="card-soft card-soft-hover flex items-center gap-3 p-4"
@@ -259,7 +220,7 @@ export function Contact() {
                     {contact.label}
                   </div>
 
-                  <div className="text-sm font-medium break-all">
+                  <div className="break-all text-sm font-medium">
                     {contact.value}
                   </div>
                 </div>
@@ -285,7 +246,7 @@ export function Contact() {
           viewport={{
             once: true,
           }}
-          className="card-soft md:col-span-3 p-6 md:p-8"
+          className="card-soft p-6 md:col-span-3 md:p-8"
         >
           {sent ? (
 
@@ -295,9 +256,7 @@ export function Contact() {
 
             <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
 
-              <CheckCircle2
-                className="h-12 w-12 text-primary"
-              />
+              <CheckCircle2 className="h-12 w-12 text-primary" />
 
               <h3 className="text-lg font-semibold">
                 Message sent successfully!
