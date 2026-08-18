@@ -9,7 +9,7 @@ import {
   CheckCircle2,
   Loader2,
 } from "lucide-react";
-import { Github, Linkedin } from "./icons/Social";
+
 import { Section } from "./Section";
 
 export function Contact() {
@@ -219,19 +219,12 @@ export function Contact() {
               icon: Linkedin,
               label: "LinkedIn",
               value:
-                "linkedin.com/in/safidy",
+                "safisy sylvana Nambinijanahary",
               href:
                 "https://www.linkedin.com/in/safidy",
             },
 
-            {
-              icon: Github,
-              label: "GitHub",
-              value:
-                "github.com/safidy",
-              href:
-                "https://github.com/safidy",
-            },
+         
           ].map((contact) => {
             const Component: any =
               contact.href ? "a" : "div";
