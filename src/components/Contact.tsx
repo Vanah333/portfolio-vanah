@@ -8,7 +8,6 @@ import {
   Send,
   CheckCircle2,
   Loader2,
-  User,
 } from "lucide-react";
 
 import { Section } from "./Section";
@@ -66,9 +65,7 @@ export function Contact() {
       // =========================
 
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
       console.log("EmailJS configuration:", {
@@ -123,13 +120,9 @@ export function Contact() {
       });
     } catch (err: any) {
       console.error("========== EMAILJS ERROR ==========");
-
       console.error("Status:", err?.status);
-
       console.error("Text:", err?.text);
-
       console.error("Full error:", err);
-
       console.error("===================================");
 
       setError(
@@ -168,65 +161,85 @@ export function Contact() {
           }}
           className="space-y-3 md:col-span-2"
         >
-          {[
-            {
-              icon: Mail,
-              label: "Email",
-              value: "safidysylvana333@gmail.com",
-              href: "mailto:safidysylvana333@gmail.com",
-            },
+          {/* EMAIL */}
 
-            {
-              icon: Phone,
-              label: "Phone ou Whatsapp",
-              value: "+261 38 95 293 85",
-              href: "tel:+261389529385",
-            },
+          <a
+            href="mailto:safidysylvana333@gmail.com"
+            className="card-soft card-soft-hover flex items-center gap-3 p-4"
+          >
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+              <Mail className="h-4 w-4" />
+            </div>
 
-            {
-              icon: MapPin,
-              label: "Location",
-              value: "Fianarantsoa, Madagascar",
-            },
+            <div className="min-w-0">
+              <div className="text-xs text-muted-foreground">
+                Email
+              </div>
 
-            {
-              icon: User,
-              label: "LinkedIn",
-              value: "Safidy Sylvana Nambinijanahary",
-            },
-          ].map((contact) => {
-            const Component: any = contact.href ? "a" : "div";
+              <div className="break-all text-sm font-medium">
+                safidysylvana333@gmail.com
+              </div>
+            </div>
+          </a>
 
-            return (
-              <Component
-                key={contact.label}
-                {...(contact.href
-                  ? {
-                      href: contact.href,
-                    }
-                  : {})}
-                className="card-soft card-soft-hover flex items-center gap-3 p-4"
-              >
-                {/* ICON */}
+          {/* PHONE */}
 
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <contact.icon className="h-4 w-4" />
-                </div>
+          <a
+            href="tel:+261389529385"
+            className="card-soft card-soft-hover flex items-center gap-3 p-4"
+          >
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+              <Phone className="h-4 w-4" />
+            </div>
 
-                {/* TEXT */}
+            <div className="min-w-0">
+              <div className="text-xs text-muted-foreground">
+                Phone
+              </div>
 
-                <div className="min-w-0">
-                  <div className="text-xs text-muted-foreground">
-                    {contact.label}
-                  </div>
+              <div className="text-sm font-medium">
+                +261 38 95 293 85
+              </div>
+            </div>
+          </a>
 
-                  <div className="break-all text-sm font-medium">
-                    {contact.value}
-                  </div>
-                </div>
-              </Component>
-            );
-          })}
+          {/* LOCATION */}
+
+          <div className="card-soft card-soft-hover flex items-center gap-3 p-4">
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+              <MapPin className="h-4 w-4" />
+            </div>
+
+            <div className="min-w-0">
+              <div className="text-xs text-muted-foreground">
+                Location
+              </div>
+
+              <div className="text-sm font-medium">
+                Fianarantsoa, Madagascar
+              </div>
+            </div>
+          </div>
+
+          {/* NAME — NO LINK */}
+
+          <div className="card-soft card-soft-hover flex items-center gap-3 p-4">
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+              <span className="text-sm font-bold">
+                S
+              </span>
+            </div>
+
+            <div className="min-w-0">
+              <div className="text-xs text-muted-foreground">
+                Name
+              </div>
+
+              <div className="text-sm font-medium">
+                Safidy Sylvana Nambinijanahary
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* =========================================
@@ -249,13 +262,11 @@ export function Contact() {
           className="card-soft p-6 md:col-span-3 md:p-8"
         >
           {sent ? (
-
             /* =====================================
                SUCCESS MESSAGE
             ===================================== */
 
             <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
-
               <CheckCircle2 className="h-12 w-12 text-primary" />
 
               <h3 className="text-lg font-semibold">
@@ -264,8 +275,7 @@ export function Contact() {
 
               <p className="max-w-md text-sm text-muted-foreground">
                 Thank you for contacting me.
-                I will get back to you as soon
-                as possible.
+                I will get back to you as soon as possible.
               </p>
 
               <button
@@ -279,9 +289,7 @@ export function Contact() {
                 Send another message
               </button>
             </div>
-
           ) : (
-
             /* =====================================
                FORM
             ===================================== */

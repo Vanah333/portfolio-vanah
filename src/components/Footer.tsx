@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { ArrowUp, Mail } from "lucide-react";
-import { Github, Linkedin } from "./icons/Social";
+import { ArrowUp } from "lucide-react";
+
 
 export function Footer() {
   const [show, setShow] = useState(false);
@@ -18,11 +18,7 @@ export function Footer() {
           <div className="text-sm text-muted-foreground text-center md:text-left">
             © {new Date().getFullYear()} Safidy Sylvana Nambinjanahary. Crafted with care in Madagascar.
           </div>
-          <div className="flex items-center gap-3">
-            <a href="mailto:safidy.nambinjanahary@example.com" className="rounded-full border border-border p-2 text-muted-foreground hover:border-primary hover:text-primary" aria-label="Email"><Mail className="h-4 w-4" /></a>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="rounded-full border border-border p-2 text-muted-foreground hover:border-primary hover:text-primary" aria-label="GitHub"><Github className="h-4 w-4" /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="rounded-full border border-border p-2 text-muted-foreground hover:border-primary hover:text-primary" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
-          </div>
+      
         </div>
       </footer>
       <button

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Download, Mail, MapPin, FolderKanban } from "lucide-react";
-import { Github, Linkedin } from "./icons/Social";
+
 import profile from "@/assets/vanahh.png";
 
 const roles = [
@@ -87,14 +87,7 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="mt-8 flex items-center gap-3">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition hover:border-primary hover:text-primary" aria-label="GitHub">
-              <Github className="h-4 w-4" />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="rounded-full border border-border p-2.5 text-muted-foreground transition hover:border-primary hover:text-primary" aria-label="LinkedIn">
-              <Linkedin className="h-4 w-4" />
-            </a>
-          </div>
+         
         </motion.div>
 
         <motion.div
